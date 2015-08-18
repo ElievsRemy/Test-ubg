@@ -1,0 +1,10 @@
+body {
+    background: url('lack.jpg');
+}
+
+label
+{
+    display: block;
+    width: 200px;
+    float: left;
+}
