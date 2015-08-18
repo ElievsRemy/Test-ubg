@@ -8,6 +8,7 @@
 
     <body>
 		<?php
+		    //connecté    
             try
             {
             	$bdd = new PDO('mysql:host=localhost;dbname=ubg;charset=utf8', 'deathcode972', '');
@@ -26,6 +27,9 @@
         	));
 
             echo 'Le titre et le commentaires ont bien été ajoutés !';
-		?>
+		
+		    //redirige vers list.php
+	    	header('Location: list.php');
+?>
     </body>
 </html>

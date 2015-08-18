@@ -1,5 +1,6 @@
-body {
-    background: url('lack.jpg');
+body
+{
+    background: url('Images/lack.jpg');
 }
 
 label
@@ -7,4 +8,14 @@ label
     display: block;
     width: 200px;
     float: left;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+
+td, th
+{
+    border: 1px solid blue;
 }
