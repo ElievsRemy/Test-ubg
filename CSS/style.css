@@ -3,19 +3,13 @@ body
     background: url('Images/lack.jpg');
 }
 
-label
-{
-    display: block;
-    width: 200px;
-    float: left;
-}
 
 table
 {
     border-collapse: collapse;
 }
 
-td, th
+TD, TH
 {
     border: 1px solid blue;
 }

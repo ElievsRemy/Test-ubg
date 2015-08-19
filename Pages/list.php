@@ -7,46 +7,38 @@
     </head>
 
     <body>
+	    <?php
+	    try
+        {
+	        $bdd = new PDO('mysql:host=localhost;dbname=ubg;charset=utf8', 'deathcode972', '');
+        }
+        catch(Exception $e)
+        {
+            die('Erreur : '.$e->getMessage());
+        }
+
+        $reponse = $bdd->query('SELECT * FROM ubg');
+
+
+    echo '<TABLE BORDER>';
+    echo '<TR>';
+	echo '<TH>Titres</TH>';
+	echo '<TH>Commentaires</TH>';
+	echo '</TR>';
 	
-<?php
-    try
-    {
-	    // Connexion a la base de donnée
-	    $bdd = new PDO('mysql:host=localhost;dbname=ubg;charset=utf8', 'deathcode972', '');
-    }
-    catch(Exception $e)
-    {
-	    die('Erreur : '.$e->getMessage());
-    }
+// On affiche chaque entrée une à une
+while ($donnees = $reponse->fetch())
+{
+    
+    echo '<TR ALIGN=center>';
+	echo '<TD>'.$donnees['titre'].'</TD>';
+	echo '<TD>'.$donnees['comments'].'</TD>';
+    echo '</TR>';
+}
+	
+    echo '</TABLE>';
+$reponse->closeCursor(); // Termine le traitement de la requête
 
-    $answer = $bdd->query('SELECT * FROM ubg');
-
-    //afficher sous forme de tableau
-    while ($data = $answer->fetch())
-    {
-    ?>
-    <table>
-   <caption>List !</caption>
-
-   <thead> <!-- En-tête du tableau -->
-       <tr>
-           <th>Titre</th>
-           <th>Commentaires</th>
-       </tr>
-   </thead>
-
-   <tbody> <!-- Corps du tableau -->
-       <tr>
-           <td><?php echo $data['titre']; ?></td>
-           <td><?php echo $data['comments']; ?></td>
-       </tr>
-      
-   </tbody>
-</table>
-      <?php  
-    $answer->closeCursor();
-    }
-    ?>
-
+?>
 	</body>
 </html>
